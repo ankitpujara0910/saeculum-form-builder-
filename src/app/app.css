@@ -1,0 +1,30 @@
+:host { display: block; min-height: 100dvh; }
+.app { padding: 72px 24px 48px; }
+.toolbar {
+  position: fixed; top: 12px; right: 16px; z-index: 30; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: flex-end;
+  max-width: calc(100vw - 32px);
+}
+.toolbar button {
+  font: inherit; font-size: 12px; padding: 5px 10px; min-height: 30px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink); border-radius: 4px; cursor: pointer;
+}
+.toolbar button:hover:not(:disabled) { background: var(--hover); }
+.toolbar button:disabled { opacity: 0.45; cursor: not-allowed; }
+.toolbar .sep { width: 1px; height: 18px; background: var(--line); }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+/* Figma frame is 1920px wide with the content card ~1235px wide, centred */
+.content { max-width: 1235px; margin: 0 auto; min-width: 0; }
+.add { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.add button {
+  display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; padding: 5px 12px; min-height: 30px;
+  background: var(--surface); color: var(--ink); border: 1px dashed var(--accent); border-radius: 4px; cursor: pointer;
+}
+.add button:hover { background: var(--hover); }
+.add .ic { color: var(--accent); font-size: 15px; line-height: 1; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 600px) {
+  .app { padding: 8px 8px 40px; }
+  .toolbar { position: static; justify-content: flex-start; margin-bottom: 10px; max-width: none; }
+}
